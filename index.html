@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client-Side Blog CMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div>
+        <h1>Client-Side Blog CMS</h1>
+        <p class="subtitle">
+            Create, edit, publish, and manage blog posts directly in your browser.
+        </p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- EDITOR -->
+    <section class="editor-section">
+
+        <div class="panel">
+            <div class="panel-header">
+                <h2 id="formTitle">Create New Post</h2>
+            </div>
+
+            <form id="postForm">
+
+                <div class="form-group">
+                    <label for="postTitle">Post Title</label>
+                    <input
+                        type="text"
+                        id="postTitle"
+                        placeholder="Enter post title"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="postContent">Content</label>
+                    <textarea
+                        id="postContent"
+                        rows="10"
+                        placeholder="Write your blog content here..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postStatus">Status</label>
+
+                    <select id="postStatus">
+                        <option value="draft">Draft</option>
+                        <option value="published">Published</option>
+                    </select>
+                </div>
+
+                <div class="button-row">
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="saveBtn"
+                    >
+                        Create Post
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary-btn hidden"
+                        id="cancelEditBtn"
+                    >
+                        Cancel Edit
+                    </button>
+
+                    <button
+                        type="button"
+                        class="danger-btn"
+                        id="clearFormBtn"
+                    >
+                        Clear
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- LIVE PREVIEW -->
+        <div class="panel preview-panel">
+
+            <div class="panel-header">
+                <h2>Post Preview</h2>
+            </div>
+
+            <article class="post-preview">
+
+                <span
+                    id="previewStatus"
+                    class="status-badge draft"
+                >
+                    DRAFT
+                </span>
+
+                <h2 id="previewTitle">
+                    Your Post Title
+                </h2>
+
+                <p
+                    id="previewContent"
+                    class="preview-content"
+                >
+                    Your post content will appear here as you type.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- POST MANAGER -->
+    <section class="panel posts-section">
+
+        <div class="posts-header">
+
+            <div>
+                <h2>My Posts</h2>
+                <p id="postCount">
+                    0 posts
+                </p>
+            </div>
+
+            <div class="filter-area">
+
+                <label for="statusFilter">
+                    Filter
+                </label>
+
+                <select id="statusFilter">
+                    <option value="all">All Posts</option>
+                    <option value="published">Published</option>
+                    <option value="draft">Drafts</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div id="postsContainer" class="posts-container">
+            <div class="empty-state">
+                <h3>No posts yet</h3>
+                <p>Create your first blog post using the form above.</p>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
